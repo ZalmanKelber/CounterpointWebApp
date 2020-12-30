@@ -49,11 +49,12 @@ class GenerateFromJson:
             counterpoint_id = str(uuid4())
             mw = MidiWriter()
             mw.write_midi_from_counterpoint(optimal, counterpoint_id + ".mid", speed_up=1) 
-            fs = FluidSynth("sound_fonts/FluidR3_GM.sf2")
+            sound_font_file_name = self._get_sound_font_file_name(lines[-1])
+            fs = FluidSynth("sound_fonts/" + sound_font_file_name)
             fs.play_midi(counterpoint_id + ".mid")
-            fs.midi_to_audio(counterpoint_id + ".mid", counterpoint_id + ".wav")
-            tw = TemplateWriter()
-            tw.write_template_from_counterpoint(optimal, lines, counterpoint_id + ".ly")
+            # fs.midi_to_audio(counterpoint_id + ".mid", counterpoint_id + ".wav")
+            # tw = TemplateWriter()
+            # tw.write_template_from_counterpoint(optimal, lines, counterpoint_id + ".ly")
             return counterpoint_id
 
     def _get_vocal_range(self, json_vocal_range: str) -> VocalRange:
@@ -80,3 +81,10 @@ class GenerateFromJson:
         if counterpoint_type == "twoPartFifthSpecies": return TwoPartFifthSpeciesGenerator(length, lines, mode, cf_index)
         if counterpoint_type == "twoPartFreeCounterpoint": return TwoPartFreeCounterpointGenerator(length, lines, mode)
         if counterpoint_type == "twoPartImitativeCounterpoint": return TwoPartImitativeCounterpointGenerator(length, lines, mode)
+
+    def _get_sound_font_file_name(self, vocal_range: VocalRange) -> str:
+        if vocal_range == VocalRange.SOPRANO:
+            return "flute.sf2"
+        if vocal_range == VocalRange.TENOR:
+            return "horn.sf2"
+        return "piano.sf2"

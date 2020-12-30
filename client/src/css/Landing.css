@@ -1,0 +1,42 @@
+html { 
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../images/pantheon.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+  }
+
+.title {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 45px;
+  text-align: center;
+  font-weight: 400;
+  color: #222;
+  margin-top: 20vh;
+}
+
+.menu {
+  margin-top: 15vh;
+  font-family: "Open Sans", sans-serif;
+  font-size: 25px;
+  text-align: center;
+}
+
+.menu-option {
+  margin-bottom: 10vh;
+}
+
+a, .menu-option {
+  font-weight: 400;
+  color: #222;
+  text-decoration: none;
+}
+
+.menu-option:hover {
+  font-weight: 600;
+}

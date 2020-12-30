@@ -15,8 +15,7 @@ def index():
     try:
         return send_file(counterpoint_id + ".wav", as_attachment=True)
     except FileNotFoundError:
-        abort(404)
-    return counterpoint_id
+        return "file note found"
 
 if __name__ == "__main__":
     app.run(debug=True)

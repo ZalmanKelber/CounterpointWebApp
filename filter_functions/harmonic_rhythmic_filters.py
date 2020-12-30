@@ -18,7 +18,7 @@ def form_suspension_fourth_species(self: object, pitch: Pitch, line: int, bar: i
             c_next_note = self._counterpoint_objects[other_line][(bar + 1, 0)]
             if c_next_note is not None:
                 if not self._is_consonant(c_next_note, pitch):
-                    if t_interval not in self._legal_intervals["resolvable_dissonance"]:
+                    if c_next_note.get_tonal_interval(pitch) not in self._legal_intervals["resolvable_dissonance"]:
                         durations.discard(8)
             
     return durations
