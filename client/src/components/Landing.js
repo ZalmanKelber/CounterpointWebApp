@@ -36,9 +36,7 @@ class Landing extends React.Component {
     startPage = () => {
         document.getElementById("landing").className = "landing landing-before-transition";
         const audio = new Audio(openingAudio);
-        setTimeout(() => {
-            audio.play();
-        }, 500);
+        audio.play();
     }
 
     firstFade = () => {
@@ -85,8 +83,6 @@ class Landing extends React.Component {
             }
         }, INTERVAL_TIME);
     }
-
-    
 
 
     render() {
