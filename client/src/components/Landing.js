@@ -3,25 +3,104 @@ import React from "react";
 import "../css/Landing.css"
 import { Link } from "react-router-dom";
 
+const FIRST_FADE = 2000
+const SECOND_FADE = 1000
+const THIRD_FADE = 1000
+const INTERVAL_TIME = 10
+
+
 class Landing extends React.Component {
-    titleString = "C O U N T E R P O I N T   G E N E R A T O R"
+
+    state = { opacityLevels: {
+        landing: 1,
+        title: 0,
+        menu: 0
+    } }
+
+    componentDidMount = async () => {
+        this.startPage()
+        setTimeout(() => {
+           this.firstFade() 
+        }, 2000);
+        setTimeout(() => {
+            this.secondFade()
+        }, 3000);
+        setTimeout(() => {
+            this.thirdFade()
+        }, 3500);
+    }
+
+    startPage = () => {
+        document.getElementById("landing").className = "landing landing-before-transition";
+    }
+
+    firstFade = () => {
+        let count = 0;
+        const handler = setInterval(() => {
+            count++;
+            const newOpacity = 1 - (count * .3 * INTERVAL_TIME / FIRST_FADE);
+            this.setState({ opacityLevels: {
+                landing: newOpacity, title: 0, menu: 0
+            } })
+            if (count >= FIRST_FADE / INTERVAL_TIME) {
+                clearInterval(handler);
+                this.setState({ opacityLevels: {
+                    landing: 1, title: 0, menu: 0
+                } })
+                document.getElementById("landing").className = "landing landing-after-transition";
+            }
+        }, INTERVAL_TIME);
+    }
+
+    secondFade = () => {
+        let count = 0;
+        const handler = setInterval(() => {
+            count++;
+            const newOpacity = count * INTERVAL_TIME / SECOND_FADE;
+            this.setState({ opacityLevels: {
+                landing: 1, title: newOpacity, menu: 0
+            } })
+            if (count >= SECOND_FADE / INTERVAL_TIME) {
+                clearInterval(handler);
+            }
+        }, INTERVAL_TIME);
+    }
+
+    thirdFade = () => {
+        let count = 0;
+        const handler = setInterval(() => {
+            count++;
+            const newOpacity = count * INTERVAL_TIME / THIRD_FADE;
+            this.setState({ opacityLevels: {
+                landing: 1, title: 1, menu: newOpacity
+            } })
+            if (count >= THIRD_FADE / INTERVAL_TIME) {
+            }
+        }, INTERVAL_TIME);
+    }
+
+    
+
 
     render() {
+
         return (
             <>
-            <div id="landing" className="landing">
-                <h1 className="title">C O U N T E R P O I N T &emsp; &emsp; G E N E R A T O R</h1>
-            </div>
-            <div id="menu" className="menu">
-                <Link to="/generate">
-                    <h3 className="menu-option">GENERATE EXAMPLES</h3>
-                </Link>
-                <Link to="/gallery">
-                    <h3 className="menu-option">GALLERY</h3>
-                </Link>
-                <Link to="/about">
-                    <h3 className="menu-option">ABOUT</h3>
-                </Link>
+            <div id="landing" style={{opacity: this.state.opacityLevels.landing}}>
+                <h1 className="title" style={{opacity: this.state.opacityLevels.title}}>
+                    C O U N T E R P O I N T &emsp; &emsp; G E N E R A T O R
+                </h1>
+                <div id="menu" className="menu" style={{opacity: this.state.opacityLevels.menu}}>
+                    <Link to="/generate">
+                        <h3 className="menu-option">GENERATE EXAMPLES</h3>
+                    </Link>
+                    <Link to="/gallery">
+                        <h3 className="menu-option">GALLERY</h3>
+                    </Link>
+                    <Link to="/about">
+                        <h3 className="menu-option">ABOUT</h3>
+                    </Link>
+                </div>
             </div>
             </>
         );
