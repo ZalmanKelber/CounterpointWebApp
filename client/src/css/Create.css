@@ -1,0 +1,22 @@
+.create-title, .step-title {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    text-align: center;
+
+}
+
+.create-title {
+    font-size: 3rem;
+}
+
+.step-title {
+    font-size: 2rem;
+}
+
+.step-content {
+    height: 100px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}

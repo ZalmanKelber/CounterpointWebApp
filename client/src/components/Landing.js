@@ -2,10 +2,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../css/Landing.css"
-import openingAudio from "../frontend_audio/page_opening.wav"
+import "../css/Landing.css";
+import openingAudio from "../frontend_audio/page_opening.wav";
 
-const START_TIME = 2000
+const START_TIME = 1000
 const FIRST_FADE = 2000
 const SECOND_FADE = 1500
 const THIRD_FADE = 1500
@@ -14,13 +14,16 @@ const INTERVAL_TIME = 10
 
 class Landing extends React.Component {
 
-    state = { opacityLevels: {
-        landing: 1,
-        title: 0,
-        menu: 0
-    } }
+    state = { 
+        audio: null,
+        opacityLevels: {
+            landing: 1,
+            title: 0,
+            menu: 0
+        } 
+    }
 
-    componentDidMount = async () => {
+    componentDidMount = () => {
         this.startPage()
         setTimeout(() => {
            this.firstFade() 
@@ -33,10 +36,15 @@ class Landing extends React.Component {
         }, START_TIME);
     }
 
+    componentWillUnmount = () => {
+        this.state.audio.pause()
+    }
+
     startPage = () => {
         document.getElementById("landing").className = "landing landing-before-transition";
         const audio = new Audio(openingAudio);
         audio.play();
+        this.setState({ ...this.state, audio: audio })
     }
 
     firstFade = () => {
@@ -44,12 +52,12 @@ class Landing extends React.Component {
         const handler = setInterval(() => {
             count++;
             const newOpacity = 1 - (count * .3 * INTERVAL_TIME / FIRST_FADE);
-            this.setState({ opacityLevels: {
+            this.setState({ ...this.state, opacityLevels: {
                 landing: newOpacity, title: 0, menu: 0
             } })
             if (count >= FIRST_FADE / INTERVAL_TIME) {
                 clearInterval(handler);
-                this.setState({ opacityLevels: {
+                this.setState({ ...this.state, opacityLevels: {
                     landing: 1, title: 0, menu: 0
                 } })
                 document.getElementById("landing").className = "landing landing-after-transition";
@@ -62,7 +70,7 @@ class Landing extends React.Component {
         const handler = setInterval(() => {
             count++;
             const newOpacity = count * INTERVAL_TIME / SECOND_FADE;
-            this.setState({ opacityLevels: {
+            this.setState({ ...this.state, opacityLevels: {
                 landing: 1, title: newOpacity, menu: 0
             } })
             if (count >= SECOND_FADE / INTERVAL_TIME) {
@@ -76,7 +84,7 @@ class Landing extends React.Component {
         const handler = setInterval(() => {
             count++;
             const newOpacity = count * INTERVAL_TIME / THIRD_FADE;
-            this.setState({ opacityLevels: {
+            this.setState({ ...this.state, opacityLevels: {
                 landing: 1, title: 1, menu: newOpacity
             } })
             if (count >= THIRD_FADE / INTERVAL_TIME) {

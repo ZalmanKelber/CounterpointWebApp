@@ -1,0 +1,9 @@
+.show-types {
+    background-color: blue;
+    height: 200px;
+    width: 90vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr 6fr;
+    grid-template-rows: repeat(12, 10px);
+}
