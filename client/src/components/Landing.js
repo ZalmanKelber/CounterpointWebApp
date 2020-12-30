@@ -90,11 +90,11 @@ class Landing extends React.Component {
         return (
             <>
             <div id="landing" style={{opacity: this.state.opacityLevels.landing}}>
-                <h1 className="title" style={{opacity: this.state.opacityLevels.title}}>
+                <h1 className="landing-title" style={{opacity: this.state.opacityLevels.title}}>
                     C O U N T E R P O I N T &emsp; &emsp; G E N E R A T O R
                 </h1>
-                <div id="menu" className="menu" style={{opacity: this.state.opacityLevels.menu}}>
-                    <Link to="/generate">
+                <div id="menu" className="landing-menu" style={{opacity: this.state.opacityLevels.menu}}>
+                    <Link to="/create">
                         <h3 className="menu-option">GENERATE EXAMPLES</h3>
                     </Link>
                     <Link to="/gallery">

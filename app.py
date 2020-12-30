@@ -8,7 +8,7 @@ from generate_from_json import GenerateFromJson
 
 app = Flask(__name__)
 
-@app.route("/generate", methods=["POST"])
+@app.route("/api", methods=["POST"])
 def index():
     json_request = request.get_json()
     counterpoint_id = GenerateFromJson().generate_from_json(json_request)
