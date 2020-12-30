@@ -1,11 +1,14 @@
 
 import React from "react";
-import "../css/Landing.css"
 import { Link } from "react-router-dom";
 
+import "../css/Landing.css"
+import openingAudio from "../frontend_audio/page_opening.wav"
+
+const START_TIME = 2000
 const FIRST_FADE = 2000
-const SECOND_FADE = 1000
-const THIRD_FADE = 1000
+const SECOND_FADE = 1500
+const THIRD_FADE = 1500
 const INTERVAL_TIME = 10
 
 
@@ -21,17 +24,21 @@ class Landing extends React.Component {
         this.startPage()
         setTimeout(() => {
            this.firstFade() 
-        }, 2000);
-        setTimeout(() => {
-            this.secondFade()
-        }, 3000);
-        setTimeout(() => {
-            this.thirdFade()
-        }, 3500);
+           setTimeout(() => {
+               this.secondFade()
+               setTimeout(() => {
+                   this.thirdFade()
+               }, SECOND_FADE);
+           }, FIRST_FADE);
+        }, START_TIME);
     }
 
     startPage = () => {
         document.getElementById("landing").className = "landing landing-before-transition";
+        const audio = new Audio(openingAudio);
+        setTimeout(() => {
+            audio.play();
+        }, 500);
     }
 
     firstFade = () => {

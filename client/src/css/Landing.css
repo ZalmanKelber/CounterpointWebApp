@@ -34,7 +34,7 @@ body {
   font-size: 45px;
   text-align: center;
   font-weight: 400;
-  color: #222;
+  color: #111;
   margin-top: 20vh;
 }
 
@@ -51,7 +51,7 @@ body {
 
 a, .menu-option {
   font-weight: 400;
-  color: #222;
+  color: #111;
   text-decoration: none;
 }
 
