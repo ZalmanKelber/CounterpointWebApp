@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 import "../css/DisplayResult.css";
 
@@ -7,13 +6,15 @@ class DisplayResult extends React.Component {
 
     state = {
         waitingForResults: true,
-        waitingForResultsDisplayPhase: 0
+        waitingForResultsDisplayPhase: 0,
+        blobURL: null
     }
 
     componentDidMount = async () => {
         const jsonRequest = JSON.stringify(this.props.currentSelections);
         const handler = setInterval(() => {
-            if (!this.state.waitingForResults) {
+            console.log("running interval handler");
+            if (this.state.blobURL) {
                 clearInterval(handler);
                 this.setState({ ...this.state, waitingForResultsDisplayPhase: 0 });
             } else {
@@ -22,15 +23,16 @@ class DisplayResult extends React.Component {
                 this.setState({ ...this.state, waitingForResultsDisplayPhase: nextPhase });
             }
         }, 500);
-        const res = await axios.post(
-            "/api", 
-            jsonRequest,  
-            {
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }
-        );
+        const xml = new XMLHttpRequest();
+        xml.open("POST", "/api");
+        xml.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xml.responseType = "blob";
+        xml.onload = e => {
+              const url = window.URL.createObjectURL(xml.response);
+              console.log(url);
+              this.setState({ ...this.state, blobURL: url });
+          };
+        xml.send(jsonRequest);
         this.setState({ ...this.state, waitingForResults: false});
 
     }
@@ -55,11 +57,26 @@ class DisplayResult extends React.Component {
     }
 
     render() {
-        const waitingForResultsDisplayString = this.getWaitingForResultsDisplayString()
+        console.log(this.state.blobURL);
+        const waitingForResultsDisplayString = this.getWaitingForResultsDisplayString();
         return (
             <>
             {
-                this.state.waitingForResults && <div className="waiting-for-results">{waitingForResultsDisplayString}</div>
+                !this.state.blobURL && <div className="waiting-for-results">{waitingForResultsDisplayString}</div>
+            }
+            {
+                this.state.blobURL && 
+                <div className="results">
+                    <h4>Success!!  Here's the file you generated.  You can play it or download it.</h4>
+                    <audio 
+                    id="wavSource" 
+                    src={this.state.blobURL} 
+                    type="audio/wav" 
+                    controls
+                    autoPlay
+                />
+                </div>
+    
             }
             </>
         );

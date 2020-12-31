@@ -1,9 +1,10 @@
-import os,sys,inspect
+import os,sys,inspect,shutil
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 sys.path.insert(0, current_dir)
 
 from midi2audio import FluidSynth
 
+from zipfile import ZipFile
 import math
 from random import random, randint, shuffle
 from uuid import uuid4
@@ -47,12 +48,15 @@ class GenerateFromJson:
             return ""
         else:
             counterpoint_id = str(uuid4())
+            shutil.rmtree("generated_files_store")
+            os.mkdir("generated_files_store")
+
             mw = MidiWriter()
-            mw.write_midi_from_counterpoint(optimal, counterpoint_id + ".mid", speed_up=1) 
+            mw.write_midi_from_counterpoint(optimal,"generated_files_store/" + counterpoint_id + ".mid", speed_up=1) 
             sound_font_file_name = self._get_sound_font_file_name(lines[-1])
             fs = FluidSynth("sound_fonts/" + sound_font_file_name)
-            fs.play_midi(counterpoint_id + ".mid")
-            # fs.midi_to_audio(counterpoint_id + ".mid", counterpoint_id + ".wav")
+            # fs.play_midi(counterpoint_id + ".mid")
+            fs.midi_to_audio( "generated_files_store/" + counterpoint_id + ".mid", "generated_files_store/" + counterpoint_id + ".wav")
             # tw = TemplateWriter()
             # tw.write_template_from_counterpoint(optimal, lines, counterpoint_id + ".ly")
             return counterpoint_id

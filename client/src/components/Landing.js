@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../css/Landing.css";
-import openingAudio from "../frontend_audio/page_opening.wav";
+import openingAudio from "../frontendAudio/page_opening.wav";
 
 const START_TIME = 1000
 const FIRST_FADE = 2000

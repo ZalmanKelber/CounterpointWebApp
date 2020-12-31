@@ -16,7 +16,7 @@ class SelectLength extends React.Component {
             substring(this.props.currentSelections.type.length - 7) === "Species" ? 5 : 4;
 
         const measureOptions = ["twoPartFreeCounterpoint", "twoPartImitativeCounterpoint"]
-            .includes(this.props.currentSelections.type) ? [14, 15, 16] : [8, 9, 10, 11, 12]
+            .includes(this.props.currentSelections.type) ? [16, 17, 18] : [8, 9, 10, 11, 12]
 
         const stepTitle = `STEP ${stepNumber}: CHOOSE NUMBER OF MEASURES`
         return (

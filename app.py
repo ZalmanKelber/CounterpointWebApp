@@ -1,3 +1,5 @@
+import zipfile
+
 import os,sys,inspect
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 sys.path.insert(0, current_dir)
@@ -14,7 +16,8 @@ def index():
     print(json_request)
     counterpoint_id = GenerateFromJson().generate_from_json(json_request)
     try:
-        return send_file(counterpoint_id + ".wav", as_attachment=True)
+        print("counterpoint id:", counterpoint_id)
+        return send_file("generated_files_store/" + counterpoint_id + ".wav", as_attachment=True)
     except FileNotFoundError:
         return "file note found"
 

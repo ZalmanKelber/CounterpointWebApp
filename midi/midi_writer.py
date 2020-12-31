@@ -13,11 +13,11 @@ class MidiWriter:
         if lines is None: return
         tempo = 672 * speed_up
         channel = 0
-        track = 0
         start_time = 0
-        CounterpointMIDI = MIDIFile(1)
-        CounterpointMIDI.addTempo(track, start_time, tempo)
-        for line in lines:
+        CounterpointMIDI = MIDIFile(len(lines))
+        for i, line in enumerate(lines):
+            track = i
+            CounterpointMIDI.addTempo(track, start_time, tempo)
             time_index = start_time
             for entity in line:
                 duration = entity.get_duration()
