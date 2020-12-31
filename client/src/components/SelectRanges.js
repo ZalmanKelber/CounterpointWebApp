@@ -43,7 +43,7 @@ class SelectRanges extends React.Component {
         return (
             <>
             <h1 className="create-title">BUILD YOUR OWN EXAMPLE</h1>
-            <h2 className="step-title">STEP 2: CHOOSE {instructionString}</h2>
+            <h2 className="step-title">STEP 3: CHOOSE {instructionString}</h2>
             <div className="step-content">
                 <div className="choose-range-content">
                     <div className="ranges-container">
