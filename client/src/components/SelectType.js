@@ -6,7 +6,7 @@ class SelectType extends React.Component {
 
     handleClick = async newValue => {
         await this.props.updateValue(newValue);
-        await this.props.goForward();
+        this.props.goForward();
     }
 
     render() {

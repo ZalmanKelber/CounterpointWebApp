@@ -25,7 +25,7 @@ class Create extends React.Component {
     state = {
         currentPhase: phases.SELECT_TYPE,
         selectedValues: {
-            type: null, mode: null, lines: null, length: null, cantusFirmusIndex: null
+            type: null, mode: null, lines: null, length: null, cantusFirmusIndex: 0
         }
     }
 
@@ -107,6 +107,7 @@ class Create extends React.Component {
                     goForward={goForward}
                     goBackward={goBackward}
                     updateValue={updateValue}
+                    currentSelections={this.state.selectedValues}
                 />
             </div>
         );

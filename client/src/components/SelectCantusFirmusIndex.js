@@ -3,7 +3,7 @@ import React from "react";
 class SelectCantusFirmusIndex extends React.Component {
     render() {
         return (
-            <div>Component</div>
+            <div>Select Cantus Firmus Index</div>
         );
     }
 }
