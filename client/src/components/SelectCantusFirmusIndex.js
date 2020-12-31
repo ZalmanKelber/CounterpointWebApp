@@ -1,5 +1,7 @@
 import React from "react";
 
+import SelectStepHeader from "./SelectStepHeader";
+
 import "../css/SelectCantusFirmusIndex.css";
 
 class SelectCantusFirmusIndex extends React.Component {
@@ -10,10 +12,14 @@ class SelectCantusFirmusIndex extends React.Component {
     }
 
     render() {
+        const stepTitle = "STEP 4: CHOOSE ORIENTATION";
         return (
             <>
-            <h1 className="create-title">BUILD YOUR OWN EXAMPLE</h1>
-            <h2 className="step-title">STEP 4: CHOOSE ORIENTATION</h2>
+            <SelectStepHeader 
+                stepTitle={stepTitle}
+                showGoBackButton={true}
+                goBackFunction={this.props.goBackward}
+            />
             <div className="step-content">
                 <div className="cantus-firmus-index-options">
                     <div className="cantus-firmus-index-option" onClick={() => this.handleClick(1)}>

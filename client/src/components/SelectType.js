@@ -1,5 +1,7 @@
 import React from "react";
 
+import SelectStepHeader from "./SelectStepHeader";
+
 import "../css/SelectType.css";
 
 class SelectType extends React.Component {
@@ -11,10 +13,14 @@ class SelectType extends React.Component {
 
     render() {
 
+        const stepTitle = "STEP 1: CHOOSE TYPE"
+
         return (
             <>
-            <h1 className="create-title">BUILD YOUR OWN EXAMPLE</h1>
-            <h2 className="step-title">STEP 1: CHOOSE TYPE</h2>
+            <SelectStepHeader 
+                stepTitle={stepTitle}
+                showGoBackButton={false}
+            />
             <div className="step-content">
                 <div className="show-types">
                     <div className="arrow-container">

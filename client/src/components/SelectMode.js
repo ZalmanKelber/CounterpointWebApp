@@ -1,5 +1,7 @@
 import React from "react";
 
+import SelectStepHeader from "./SelectStepHeader";
+
 import "../css/SelectModes.css";
 
 class SelectMode extends React.Component {
@@ -10,10 +12,14 @@ class SelectMode extends React.Component {
     }
 
     render() {
+        const stepTitle = "STEP 2: CHOOSE MODE";
         return (
             <>
-            <h1 className="create-title">BUILD YOUR OWN EXAMPLE</h1>
-            <h2 className="step-title">STEP 2: CHOOSE MODE</h2>
+            <SelectStepHeader 
+                stepTitle={stepTitle}
+                showGoBackButton={true}
+                goBackFunction={this.props.goBackward}
+            />
             <div className="step-content">
                 <div className="show-modes">
                     <div className="mode-selection" onClick={() => this.handleClick("ionian")}>

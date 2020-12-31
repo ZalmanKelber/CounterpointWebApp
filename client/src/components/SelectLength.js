@@ -1,5 +1,7 @@
 import React from "react";
 
+import SelectStepHeader from "./SelectStepHeader";
+
 import "../css/SelectLength.css";
 
 class SelectLength extends React.Component {
@@ -15,10 +17,15 @@ class SelectLength extends React.Component {
 
         const measureOptions = ["twoPartFreeCounterpoint", "twoPartImitativeCounterpoint"]
             .includes(this.props.currentSelections.type) ? [14, 15, 16] : [8, 9, 10, 11, 12]
+
+        const stepTitle = `STEP ${stepNumber}: CHOOSE NUMBER OF MEASURES`
         return (
             <>
-            <h1 className="create-title">BUILD YOUR OWN EXAMPLE</h1>
-            <h2 className="step-title">STEP {stepNumber}: CHOOSE NUMBER OF MEASURES</h2>
+            <SelectStepHeader 
+                stepTitle={stepTitle}
+                showGoBackButton={true}
+                goBackFunction={this.props.goBackward}
+            />
             <div className="step-content">
                 <div className="length-options">
                     {

@@ -1,5 +1,7 @@
 import React from "react";
 
+import SelectStepHeader from "./SelectStepHeader";
+
 import "../css/SelectRanges.css";
 
 class SelectRanges extends React.Component {
@@ -40,10 +42,14 @@ class SelectRanges extends React.Component {
     render() {
         const vocalRanges = ["soprano", "alto", "tenor", "bass"];
         const instructionString = this.getNumberOfLines() === 2 ? "TWO VOCAL RANGES" : "A VOCAL RANGE";
+        const stepTitle = `STEP 3: CHOOSE ${instructionString}`
         return (
             <>
-            <h1 className="create-title">BUILD YOUR OWN EXAMPLE</h1>
-            <h2 className="step-title">STEP 3: CHOOSE {instructionString}</h2>
+            <SelectStepHeader 
+                stepTitle={stepTitle}
+                showGoBackButton={true}
+                goBackFunction={this.props.goBackward}
+            />
             <div className="step-content">
                 <div className="choose-range-content">
                     <div className="ranges-container">
