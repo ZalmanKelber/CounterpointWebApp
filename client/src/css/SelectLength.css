@@ -1,0 +1,16 @@
+.length-options {
+    display: flex;
+    margin-top: 40px;
+}
+
+.measure-option {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 700;
+    font-size: 2rem;
+    transition: font-size 200ms;
+    margin: 0 20px;
+}
+
+.measure-option:hover {
+    font-size: 2.2rem;
+}
