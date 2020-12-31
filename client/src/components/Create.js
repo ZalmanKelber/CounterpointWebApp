@@ -71,7 +71,7 @@ class Create extends React.Component {
                 break;
             case phases.SELECT_RANGES:
                 DisplayComponent = SelectRanges;
-                if (this.state.selectedValues.type.slice(this.state.selectedValues.type.length - 7) === "Species") {
+                if (this.state.selectedValues.type.substring(this.state.selectedValues.type.length - 7) === "Species") {
                     goForward = this.getChangePhaseFunction(phases.SELECT_CANTUS_FRMUS_INDEX);
                 } else {
                     goForward = this.getChangePhaseFunction(phases.SELECT_LENGTH);
@@ -88,7 +88,7 @@ class Create extends React.Component {
             case phases.SELECT_LENGTH:
                 DisplayComponent = SelectLength;
                 goForward = this.getChangePhaseFunction(phases.DISPLAY_RESULT);
-                if (this.state.selectedValues.type.slice(this.state.selectedValues.type.length - 7) === "Species") {
+                if (this.state.selectedValues.type.substring(this.state.selectedValues.type.length - 7) === "Species") {
                     goBackward = this.getChangePhaseFunction(phases.SELECT_CANTUS_FRMUS_INDEX);
                 } else {
                     goBackward = this.getChangePhaseFunction(phases.SELECT_RANGES);

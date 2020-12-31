@@ -4,9 +4,9 @@ import "../css/SelectType.css";
 
 class SelectType extends React.Component {
 
-    handleClick = newValue => {
-        this.props.updateValue(newValue);
-        this.props.goForward();
+    handleClick = async newValue => {
+        await this.props.updateValue(newValue);
+        await this.props.goForward();
     }
 
     render() {
@@ -24,7 +24,7 @@ class SelectType extends React.Component {
                         <div className="arrow-filler"></div>
                         <div className="arrow-body"></div>
                         <div className="downward-triangle"></div>
-                        <div className="arrow-text">( More Complex )</div>
+                        <div className="arrow-text">( More Complex</div>
                     </div>
                     <div className="type-title solo-melody-title">Solo Melodies:</div>
                     <div className="type-title species-counterpoint-title">Species Counterpoint:</div>

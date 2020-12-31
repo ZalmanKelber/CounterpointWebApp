@@ -1,0 +1,24 @@
+.show-modes {
+    margin: auto;
+    flex: 1;
+    max-width: 500px;
+}
+
+.mode-selection {
+    text-align: center;
+    font-family: "Libre Caslon Text", serif;
+}
+
+.mode-selection:hover {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.mode-selection p {
+    font-size: 1rem;
+}
+
+.mode-selection h3 {
+    font-size: 1.3em;
+}
+
