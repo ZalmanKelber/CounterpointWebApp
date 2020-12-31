@@ -11,6 +11,7 @@ app = Flask(__name__)
 @app.route("/api", methods=["POST"])
 def index():
     json_request = request.get_json()
+    print(json_request)
     counterpoint_id = GenerateFromJson().generate_from_json(json_request)
     try:
         return send_file(counterpoint_id + ".wav", as_attachment=True)

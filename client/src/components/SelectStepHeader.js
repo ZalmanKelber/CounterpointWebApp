@@ -2,11 +2,6 @@ import React from "react";
 
 class SelectStepHeader extends React.Component {
 
-    handleClick = async newValue => {
-        await this.props.updateValue(newValue);
-        this.props.goForward();
-    }
-
     render() {
         return (
             <>

@@ -17,6 +17,10 @@
     border: 3px solid black;
 }
 
+.range:hover {
+    cursor: pointer;
+}
+
 .selected-range {
     font-weight: 700;
     font-size: 1.8rem;
