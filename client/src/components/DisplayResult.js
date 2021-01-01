@@ -1,4 +1,6 @@
 import React from "react";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 
 import "../css/DisplayResult.css";
 
@@ -59,6 +61,7 @@ class DisplayResult extends React.Component {
     render() {
         console.log(this.state.blobURL);
         const waitingForResultsDisplayString = this.getWaitingForResultsDisplayString();
+
         return (
             <>
             {
@@ -66,15 +69,21 @@ class DisplayResult extends React.Component {
             }
             {
                 this.state.blobURL && 
-                <div className="results">
-                    <h4>Success!!  Here's the file you generated.  You can play it or download it.</h4>
-                    <audio 
-                    id="wavSource" 
-                    src={this.state.blobURL} 
-                    type="audio/wav" 
-                    controls
-                    autoPlay
-                />
+                <div className="success-container">
+                    <h2 className="success-title">Success!!  Here's the file you generated.  You can play it or download it.</h2>
+                    <div className="audio-player-container">
+                        <AudioPlayer
+                            autoPlay
+                            src={this.state.blobURL}
+                            showJumpControls={false}
+                            customAdditionalControls={[]}
+                            customVolumeControls={[]}
+                            layout="horizontal-reverse"
+                        />
+                    </div>
+                    <div className="download-button">
+                        Download
+                    </div>
                 </div>
     
             }

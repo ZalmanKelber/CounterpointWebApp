@@ -57,8 +57,8 @@ class GenerateFromJson:
             fs = FluidSynth("sound_fonts/" + sound_font_file_name)
             # fs.play_midi(counterpoint_id + ".mid")
             fs.midi_to_audio( "generated_files_store/" + counterpoint_id + ".mid", "generated_files_store/" + counterpoint_id + ".wav")
-            # tw = TemplateWriter()
-            # tw.write_template_from_counterpoint(optimal, lines, counterpoint_id + ".ly")
+            tw = TemplateWriter()
+            tw.write_template_from_counterpoint(optimal, lines, "generated_files_store/" + counterpoint_id + ".ly")
             return counterpoint_id
 
     def _get_vocal_range(self, json_vocal_range: str) -> VocalRange:
