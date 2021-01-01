@@ -1,24 +1,38 @@
 .show-modes {
     margin: auto;
     flex: 1;
-    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 .mode-selection {
+    width: 300px;
+    height: 300px;
+    margin: 50px 20px 0 20px;
+    padding: 25px 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
     text-align: center;
     font-family: "Libre Caslon Text", serif;
+    box-sizing: border-box;
 }
 
 .mode-selection:hover {
-    cursor: pointer;
-    font-weight: 700;
+    border: 3px solid black;
+    padding: 23px 8px;
+    font-size: 1.02rem;
 }
 
 .mode-selection p {
-    font-size: 1rem;
+    font-size: 1.2em;
 }
 
 .mode-selection h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 

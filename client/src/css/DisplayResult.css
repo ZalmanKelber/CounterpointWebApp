@@ -6,11 +6,15 @@
 }
 
 .success-container {
-    background: url("../images/clouds.jpg") no-repeat;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.15)
+      ),
+      url("../images/clouds.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     flex: 1;
-    margin: 10vh 10vw;
+    margin: 8vh 8vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -25,7 +29,6 @@
 }
 
 .success-title {
-    margin-top: 10vh;
     width: 80vw;
     background: rgba(255, 255, 255, 0.1);
     width: 80%;

@@ -58,6 +58,15 @@ class DisplayResult extends React.Component {
         }
     }
 
+    downloadAudio = () => {
+        const link = document.createElement("a");
+        link.download = "counterpoint.wav";
+        link.href = this.state.blobURL;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
     render() {
         console.log(this.state.blobURL);
         const waitingForResultsDisplayString = this.getWaitingForResultsDisplayString();
@@ -70,7 +79,7 @@ class DisplayResult extends React.Component {
             {
                 this.state.blobURL && 
                 <div className="success-container">
-                    <h2 className="success-title">Success!!  Here's the file you generated.  You can play it or download it.</h2>
+                    <h2 className="success-title">Success!<br /><br />Here's the file you generated.  You can play it or download it.</h2>
                     <div className="audio-player-container">
                         <AudioPlayer
                             autoPlay
@@ -81,8 +90,8 @@ class DisplayResult extends React.Component {
                             layout="horizontal-reverse"
                         />
                     </div>
-                    <div className="download-button">
-                        Download
+                    <div className="download-button" onClick={this.downloadAudio}>
+                        Download Audio
                     </div>
                 </div>
     
