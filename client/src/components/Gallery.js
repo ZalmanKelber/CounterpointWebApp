@@ -25,7 +25,7 @@ const imageFiles = [ionianImage, dorianImage, phrygianImage, lydianImage, mixoly
 
 class Gallery extends React.Component {
 
-    state = { selectedMode: "dorian" }
+    state = { selectedMode: null }
 
     selectMode = mode => {
         this.setState({ ...this.state, selectedMode: mode })
@@ -37,12 +37,16 @@ class Gallery extends React.Component {
         return (
             <div className="main">
                 <Navbar />
+                <h1 className="create-title">GALLERY</h1>
+                <h2 className="gallery-instructions">Click on a mode to view one of our favorite examples of imitative counterpoint produced by the program</h2>
                 <div className="gallery-container">
                     <div className="list-modes">
                         {
                             modes.map((mode, i) => {
                                 return (
-                                    <div className="mode-title" onClick={() => this.selectMode(mode)} >{mode}</div>
+                                    <div className="mode-title-container" onClick={() => this.selectMode(mode)} >
+                                        <div className="mode-title">{mode.charAt(0).toUpperCase() + mode.slice(1)}</div>
+                                    </div>
                                 )
                             })
                         }
