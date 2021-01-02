@@ -1,0 +1,7 @@
+env/
+sound_fonts/
+__pycache__
+*.mid
+*.wav
+*.ly
+*.pdf
