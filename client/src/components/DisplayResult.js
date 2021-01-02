@@ -15,7 +15,6 @@ class DisplayResult extends React.Component {
     componentDidMount = async () => {
         const jsonRequest = JSON.stringify(this.props.currentSelections);
         const handler = setInterval(() => {
-            console.log("running interval handler");
             if (this.state.blobURL) {
                 clearInterval(handler);
                 this.setState({ ...this.state, waitingForResultsDisplayPhase: 0 });
@@ -31,7 +30,6 @@ class DisplayResult extends React.Component {
         xml.responseType = "blob";
         xml.onload = e => {
               const url = window.URL.createObjectURL(xml.response);
-              console.log(url);
               this.setState({ ...this.state, blobURL: url });
           };
         xml.send(jsonRequest);
@@ -67,8 +65,11 @@ class DisplayResult extends React.Component {
         document.body.removeChild(link);
     }
 
+    startNew = () => {
+        this.props.refreshState();
+    }
+
     render() {
-        console.log(this.state.blobURL);
         const waitingForResultsDisplayString = this.getWaitingForResultsDisplayString();
 
         return (
@@ -78,8 +79,9 @@ class DisplayResult extends React.Component {
             }
             {
                 this.state.blobURL && 
+                <>
                 <div className="success-container">
-                    <h2 className="success-title">Success!<br /><br />Here's the file you generated.  You can play it or download it.</h2>
+                    <h2 className="success-title">Success!<br /><br />Here's the file you generated.  Click below to play or download.</h2>
                     <div className="audio-player-container">
                         <AudioPlayer
                             autoPlay
@@ -93,7 +95,9 @@ class DisplayResult extends React.Component {
                     <div className="download-button" onClick={this.downloadAudio}>
                         Download Audio
                     </div>
+                    <h2 className="generate-new-example" onClick={this.startNew}>Generate a new example</h2>
                 </div>
+                </>
     
             }
             </>

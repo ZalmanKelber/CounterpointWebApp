@@ -52,6 +52,15 @@ class Create extends React.Component {
         return getChangePhaseFunction;
     }
 
+    refreshState = () => {
+        this.setState({
+            currentPhase: phases.SELECT_TYPE,
+            selectedValues: {
+                type: null, mode: null, lines: null, length: null, cantusFirmusIndex: 0
+            }
+        })
+    }
+
     render() {
         let DisplayComponent;
         let goForward;
@@ -108,6 +117,7 @@ class Create extends React.Component {
                     goBackward={goBackward}
                     updateValue={updateValue}
                     currentSelections={this.state.selectedValues}
+                    refreshState={this.refreshState}
                 />
             </div>
         );

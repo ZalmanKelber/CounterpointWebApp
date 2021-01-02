@@ -20,16 +20,18 @@
     text-align: center;
     font-family: "Libre Caslon Text", serif;
     box-sizing: border-box;
+    transition: font-size 150ms;
 }
 
 .mode-selection:hover {
     border: 3px solid black;
     padding: 23px 8px;
     font-size: 1.02rem;
+    box-shadow: 2px 4px 2px #bbb;
 }
 
 .mode-selection p {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .mode-selection h3 {

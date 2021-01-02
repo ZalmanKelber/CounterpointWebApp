@@ -7,7 +7,8 @@ import "../css/SelectRanges.css";
 class SelectRanges extends React.Component {
 
     state = {
-        selected: []
+        selected: [],
+        selectedIndex: null
     }
 
     handleSubmit = async () => {
@@ -19,28 +20,30 @@ class SelectRanges extends React.Component {
         return ["cantusFirmus", "freeMelody"].includes(this.props.currentSelections.type) ? 1 : 2;
     }
 
-    handleClick = vocalRange => {
+    getClassList = (vocalRange, i) => {
+        if (this.getNumberOfLines() === 1) return this.state.selected.includes(vocalRange) ? "range selected-range" : "range";
+        return this.state.selectedIndex === i ? "range selected-range" : "range";
+    }
+
+    handleClick = (vocalRange, i) => {
         let rangeList = [vocalRange]
         if (this.getNumberOfLines() === 2) {
-            switch (vocalRange) {
-                case "soprano":
+            switch (i) {
+                case 0:
                     rangeList = ["alto", "soprano"];
                     break;
-                case "alto":
-                    rangeList.push("soprano");
+                case 1:
+                    rangeList = ["tenor", "alto"];
                     break;
-                case "tenor":
-                    rangeList.push("alto");
-                    break;
-                case "bass":
-                    rangeList.push("tenor");
+                default:
+                    rangeList = ["bass", "tenor"];
             }
         } 
-        this.setState({ ...this.state, selected: rangeList });
+        this.setState({ ...this.state, selected: rangeList, selectedIndex: i });
     }
 
     render() {
-        const vocalRanges = ["soprano", "alto", "tenor", "bass"];
+        const vocalRangesList = this.getNumberOfLines() === 2 ? [["soprano", "alto"], ["alto", "tenor"], ["tenor", "bass"]]: [["soprano", "alto", "tenor", "bass"]];
         const instructionString = this.getNumberOfLines() === 2 ? "TWO VOCAL RANGES" : "A VOCAL RANGE";
         const stepTitle = `STEP 3: CHOOSE ${instructionString}`
         return (
@@ -54,11 +57,19 @@ class SelectRanges extends React.Component {
                 <div className="choose-range-content">
                     <div className="ranges-container">
                         {
-                            vocalRanges.map((vocalRange, i) => {
-                                const classList = this.state.selected.includes(vocalRange) ? "range selected-range" : "range";
+                            vocalRangesList.map((vocalRanges, i) => {
                                 return (
-                                <div key={i} className={classList} onClick={() => this.handleClick(vocalRange)}>{vocalRange.toUpperCase()}</div>
-                                );
+                                    <div className="ranges-list" key={i}>
+                                        {
+                                            vocalRanges.map((vocalRange, j) => {
+                                                const classList = this.getClassList(vocalRange, i);
+                                                return (
+                                                <div key={j} className={classList} onClick={() => this.handleClick(vocalRange, i)}>{vocalRange.toUpperCase()}</div>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                )
                             })
                         }
                     </div>

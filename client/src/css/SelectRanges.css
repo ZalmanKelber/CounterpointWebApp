@@ -4,15 +4,24 @@
 }
 
 .ranges-container {
-    width: 200px;
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.ranges-list {
+    margin-bottom: 40px;
 }
 
 .range {
-    width: 100%;
+    width: 200px;
     height: 50px;
     box-sizing: border-box;
     padding-top: 3px;
     margin-top: -3px;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 1.7rem;
     border: 3px solid black;
 }
@@ -30,8 +39,10 @@
     margin-top: 25px;
     font-size: 1.5rem;
     font-weight: 700;
+    transition: font-size 150ms;
 }
 
 .continue-button:hover {
     cursor: pointer;
+    font-size: 1.58rem;
 }

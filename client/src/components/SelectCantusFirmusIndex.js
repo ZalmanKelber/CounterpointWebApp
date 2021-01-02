@@ -22,11 +22,11 @@ class SelectCantusFirmusIndex extends React.Component {
             />
             <div className="step-content">
                 <div className="cantus-firmus-index-options">
-                    <div className="cantus-firmus-index-option" onClick={() => this.handleClick(1)}>
-                        Cantus Firmus on top
-                    </div>
                     <div className="cantus-firmus-index-option" onClick={() => this.handleClick(0)}>
-                        Cantus Firmus on bottom
+                        Top line: Counterpoint<br />Bottom line: Cantus Firmus
+                    </div>
+                    <div className="cantus-firmus-index-option" onClick={() => this.handleClick(1)}>
+                        Top line: Cantus Firmus<br />Bottom line: Counterpoint
                     </div>
                 </div>
             </div>
