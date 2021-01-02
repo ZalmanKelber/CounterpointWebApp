@@ -17,7 +17,9 @@ class MidiWriter:
         CounterpointMIDI = MIDIFile(len(lines), deinterleave=False, removeDuplicates=False)
         for i, line in enumerate(lines):
             #75 is the "recorder" instrument in General MIDI
-            CounterpointMIDI.addProgramChange(0, i, 0, 75)
+            instrument = 75 if i == 0 else 70
+            volume_level = 100 if i == 0 else 85
+            CounterpointMIDI.addProgramChange(0, i, 0, instrument)
             track = i
             channel = i
             CounterpointMIDI.addTempo(track, start_time, tempo)
@@ -25,7 +27,7 @@ class MidiWriter:
             for entity in line + [Rest(8)]:
                 duration = entity.get_duration()
                 pitch = entity.get_pitch_value() if isinstance(entity, Pitch) else 0
-                volume = 100 if isinstance(entity, Pitch) else 0
+                volume = volume_level if isinstance(entity, Pitch) else 0
                 CounterpointMIDI.addNote(track, channel, pitch, time_index, duration, volume)
                 time_index += duration
         with open(filename, "wb") as output_file:
