@@ -138,10 +138,10 @@ class TwoPartFreeCounterpointGenerator (FifthSpeciesCounterpointGenerator, TwoLi
         for line in range(2):
             self._attempt_parameters[line]["suspension_bars"] = []
         for suspension_bar in suspension_bars:
-            if random() < .33:
-                self._attempt_parameters[0]["suspension_bars"].append(suspension_bar)
-            else:
-                self._attempt_parameters[1]["suspension_bars"].append(suspension_bar)
+            # if random() < .33:
+            #     self._attempt_parameters[0]["suspension_bars"].append(suspension_bar)
+            # else:
+            self._attempt_parameters[1]["suspension_bars"].append(suspension_bar)
 
     #override:
     #collect unlimited Cantus Firmus examples within 3500 backtracks

@@ -22,6 +22,7 @@
     font-weight: 700;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 20px;
 }
 
 .audio-player-container {
@@ -32,20 +33,29 @@
     background: rgba(255, 255, 255, 0.05);
     padding: 10px;
     border-radius: 4px;
+    width: 80%
 }
 
-.success-title {
-    width: 80%;
-}
 
 .generate-new-example:hover {
-    cursor: pointer;
     background:  rgba(255, 255, 255, 0.3);
+}
+
+.generate-options-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.separator {
+    width: 10vw;
+}
+
+.generate-option:hover {
+    cursor: pointer;
 }
 
 .download-button {
     padding: 10px;
-    font-size: 1.3rem;
     background:  rgba(255, 255, 255, 0.05);
     border-radius: 4px;
 }

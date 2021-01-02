@@ -34,7 +34,7 @@ def get_string_representation_of_entity(entity: RhythmicValue, beat: float) -> s
 
 
         string_representation += {
-            Accidental.NATURAL: "", Accidental.SHARP: "s", Accidental.FLAT: "f"
+            Accidental.NATURAL: "", Accidental.SHARP: "is", Accidental.FLAT: "es"
         }[entity.get_accidental()]
 
         octave = entity.get_octave()

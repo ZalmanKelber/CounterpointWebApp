@@ -65,6 +65,10 @@ class DisplayResult extends React.Component {
         document.body.removeChild(link);
     }
 
+    tryAgain = () => {
+        this.props.refreshDisplayResult();
+    }
+
     startNew = () => {
         this.props.refreshState();
     }
@@ -92,10 +96,17 @@ class DisplayResult extends React.Component {
                             layout="horizontal-reverse"
                         />
                     </div>
-                    <div className="download-button" onClick={this.downloadAudio}>
+                    <h2 className="download-button" onClick={this.downloadAudio}>
                         Download Audio
+                    </h2>
+                    <div className="generate-new-example">
+                        <h2>Generate another example</h2>
+                        <div className="generate-options-container">
+                            <h2 className="generate-option" onClick={this.startNew}>Start from the beginning</h2>
+                            <div className="separator"></div>
+                            <h2 className="generate-option" onClick={this.tryAgain}>Use same parameters</h2>
+                        </div>
                     </div>
-                    <h2 className="generate-new-example" onClick={this.startNew}>Generate a new example</h2>
                 </div>
                 </>
     

@@ -34,7 +34,7 @@ class SelectType extends React.Component {
                     </div>
                     <div className="type-title solo-melody-title">Solo Melodies:</div>
                     <div className="type-title species-counterpoint-title">Species Counterpoint:</div>
-                    <div className="type-title two-part-counterpoint-title">Two Part Counterpoint:</div>
+                    <div className="type-title two-part-counterpoint-title">Two Part Counterpoint (takes about 5-30 seconds):</div>
                     <div className="type-selection cantus-firmus" onClick={() => this.handleClick("cantusFirmus")}>
                         <div className="type-name">Cantus Firmus</div>
                         <div className="type-description">Simple whole-note melody that exemplifies the most basic rules of 

@@ -61,6 +61,18 @@ class Create extends React.Component {
         })
     }
 
+    refreshDisplayResult = async () => {
+        console.log("attempting to refresh display result");
+        await this.setState({
+            ...this.state,
+            currentPhase: phases.SELECT_LENGTH
+        });
+        this.setState({
+            ...this.state,
+            currentPhase: phases.DISPLAY_RESULT
+        });
+    }
+
     render() {
         let DisplayComponent;
         let goForward;
@@ -118,6 +130,7 @@ class Create extends React.Component {
                     updateValue={updateValue}
                     currentSelections={this.state.selectedValues}
                     refreshState={this.refreshState}
+                    refreshDisplayResult={this.refreshDisplayResult}
                 />
             </div>
         );

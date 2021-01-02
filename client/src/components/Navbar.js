@@ -13,13 +13,13 @@ class Navbar extends React.Component {
                     COUNTERPOINT GENERATOR
                 </div>
                 <div className="menu-items">
-                    <div className="menu-link">
+                    <div className="menu-link" onClick={() => window.location.reload()}>
                         <Link to="/create">GENERATE</Link>
                     </div>
-                    <div className="menu-link">
+                    <div className="menu-link" onClick={() => window.location.reload()}>
                         <Link to="/gallery">GALLERY</Link>
                     </div>
-                    <div className="menu-link">
+                    <div className="menu-link" onClick={() => window.location.reload()}>
                         <Link to="/ahout">ABOUT</Link>
                     </div>
                     <div className="menu-link">

@@ -14,9 +14,10 @@ class MidiWriter:
         tempo = 672 * speed_up
         channel = 0
         start_time = 0
-        CounterpointMIDI = MIDIFile(len(lines))
+        CounterpointMIDI = MIDIFile(len(lines), deinterleave=False, removeDuplicates=False)
         for i, line in enumerate(lines):
             track = i
+            channel = i
             CounterpointMIDI.addTempo(track, start_time, tempo)
             time_index = start_time
             for entity in line:
