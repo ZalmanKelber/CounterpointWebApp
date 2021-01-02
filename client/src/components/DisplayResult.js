@@ -85,7 +85,7 @@ class DisplayResult extends React.Component {
                 this.state.blobURL && 
                 <>
                 <div className="success-container">
-                    <h2 className="success-title">Success!<br /><br />Here's the file you generated.  Click below to play or download.</h2>
+                    <h2 className="success-title">Success!  Here's the file you generated.  Click below to play or download.</h2>
                     <div className="audio-player-container">
                         <AudioPlayer
                             autoPlay
@@ -96,18 +96,11 @@ class DisplayResult extends React.Component {
                             layout="horizontal-reverse"
                         />
                     </div>
-                    <h2 className="download-button" onClick={this.downloadAudio}>
-                        Download Audio
-                    </h2>
-                    <div className="generate-new-example">
-                        <h2>Generate another example</h2>
-                        <div className="generate-options-container">
-                            <h2 className="generate-option" onClick={this.startNew}>Start from the beginning</h2>
-                            <div className="separator"></div>
-                            <h2 className="generate-option" onClick={this.tryAgain}>Use same parameters</h2>
-                        </div>
-                    </div>
                 </div>
+                <h2 className="download-button results-button" onClick={this.downloadAudio}>Download Audio</h2>
+                <h2 className="generate-option results-button" onClick={this.tryAgain}>Try again with same parameters</h2>
+                <h2 className="or">or</h2>
+                <h2 className="generate-option results-button" onClick={this.startNew}>Start from the beginning</h2>
                 </>
     
             }

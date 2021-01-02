@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: blue;
     background: url("../images/corinthian.jpg");
     background-size: 100%;
     border-top: solid black 5px;
@@ -25,6 +26,31 @@
     font-size: 1.6rem;
 }
 
+@media screen and (max-width : 520px) {
+
+    .menu-link {
+        font-size: 3vw;
+        width: 10vw;
+        padding: 4px;
+        margin: 1px;
+    }
+
+    .menu-link a {
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width : 750px) {
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar-title {
+      display: none;
+    }
+}
+
 a {
     color:white;
     font-weight: 300;
@@ -35,7 +61,7 @@ a:hover {
 }
 
 .menu-link, .navbar-title {
-    background: rgba(104, 104, 104, 0.15);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     padding: 8px;
     text-align: center;

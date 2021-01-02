@@ -22,19 +22,29 @@ class SelectType extends React.Component {
                 showGoBackButton={false}
             />
             <div className="step-content">
+                <div className="select-type-description">
+                    Select a type of counterpoint exercise to generate.
+                    <br />
+                    This will be a short musical composition in the style of the Italian Renaissance composer Giovanni Pierluigi da Palestrina.
+                    <hr />
+                </div>
                 <div className="show-types">
                     <div className="arrow-container">
-                        <div className="arrow-text">( Simpler / Faster )</div>
+                        <div className="arrow-text">(Simpler / Faster)</div>
                         <div className="upward-triangle"></div>
                         <div className="arrow-body"></div>
                         <div className="arrow-filler"></div>
                         <div className="arrow-body"></div>
                         <div className="downward-triangle"></div>
-                        <div className="arrow-text">( More Complex</div>
+                        <div className="arrow-text">(More Complex)</div>
                     </div>
                     <div className="type-title solo-melody-title">Solo Melodies:</div>
-                    <div className="type-title species-counterpoint-title">Species Counterpoint:</div>
-                    <div className="type-title two-part-counterpoint-title">Two Part Counterpoint (takes about 5-30 seconds):</div>
+                    <div className="type-title species-counterpoint-title">Species 
+                        Counterpoint: <br /><span className="complexity-warning">(takes about 5-15 seconds)</span>
+                    </div>
+                    <div className="type-title two-part-counterpoint-title">Two Part 
+                     Counterpoint: <br /><span className="complexity-warning">(takes about 5-30 seconds)</span>
+                    </div>
                     <div className="type-selection cantus-firmus" onClick={() => this.handleClick("cantusFirmus")}>
                         <div className="type-name">Cantus Firmus</div>
                         <div className="type-description">Simple whole-note melody that exemplifies the most basic rules of 

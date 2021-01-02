@@ -1,6 +1,7 @@
 .choose-range-content {
     font-family: "Open Sans", sans-serif;
     text-align: center;
+    height: 100%;
 }
 
 .ranges-container {
@@ -40,6 +41,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     transition: font-size 150ms;
+    margin-bottom: 30px;
 }
 
 .continue-button:hover {

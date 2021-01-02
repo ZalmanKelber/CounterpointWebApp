@@ -1,6 +1,12 @@
+.select-type-description {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    max-width: 700px;
+}
+
 .show-types {
     font-family: "Open Sans", sans-serif;
-    min-width: 500px;
+    width: 90vw;
     margin: auto 5vw 5vw;
     display: grid;
     grid-template-columns: 2fr .5fr 1fr .5fr 1fr;
@@ -96,7 +102,7 @@
 
 .preview-image {
     grid-column: 3 / 4;
-    width: 100%;
+    width: 200px;
     height: 40px;
     margin: auto 0;
 }
@@ -153,4 +159,96 @@
     grid-row: 12 / 13;
     background: url("../images/ImitativeCounterpointPreview.png") no-repeat;
     background-size: 100%;
+}
+
+.complexity-warning {
+    color: crimson;
+    font-size: .7rem;
+    font-weight: 400;
+}
+
+@media screen and (max-width : 700px) {
+    .show-types {
+        max-width: 90vw;
+        grid-template-columns: 2fr .2fr 30px;
+        grid-template-rows: repeat(21, auto);
+    }
+
+    .type-name {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .type-description {
+        font-size: 0.5rem;
+    }
+
+    .arrow-container {
+        padding: 100px 2px;
+        grid-row: 1 / 22;
+        grid-column: 3 / 4;
+    }
+
+    .arrow-text {
+        font-size: .6rem;
+    }
+
+    .type-title {
+        font-size: 1.1rem;
+        margin: 4px 0;
+        grid-column: 1 / 2;
+    }
+
+    .solo-melody-title {
+        grid-row: 1 / 2;
+    }
+    
+    .species-counterpoint-title {
+        grid-row: 6 / 7;
+    }
+    
+    .two-part-counterpoint-title {
+        grid-row: 17 / 18;
+    }
+
+    .preview-image {
+        grid-column: 1 / 2;
+    }
+
+    .cantus-firmus-preview {
+        grid-row: 3 / 4;
+    }
+    
+    .free-melody-preview {
+        grid-row: 5 / 6;
+    }
+    
+    .first-species-preview {
+        grid-row: 8 / 9;
+    }
+    
+    .second-species-preview {
+        grid-row: 10 / 11;
+    }
+    
+    .third-species-preview {
+        grid-row: 12 / 13;
+    }
+    
+    .fourth-species-preview {
+        grid-row: 14 / 15;
+    }
+    
+    .fifth-species-preview {
+        grid-row: 16 / 17;
+    }
+    
+    .free-counterpoint-preview {
+        grid-row: 19 / 20;
+    }
+    
+    .imitative-counterpoint-preview {
+        grid-row: 21 / 22;
+    }
 }

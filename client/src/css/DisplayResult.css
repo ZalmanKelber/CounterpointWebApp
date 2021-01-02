@@ -18,11 +18,12 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-family: "Libre Caslon Text", serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 700;
     align-items: center;
     justify-content: space-around;
     padding-bottom: 20px;
+    min-height: 400px;
 }
 
 .audio-player-container {
@@ -34,35 +35,6 @@
     padding: 10px;
     border-radius: 4px;
     width: 80%
-}
-
-
-.generate-new-example:hover {
-    background:  rgba(255, 255, 255, 0.3);
-}
-
-.generate-options-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.separator {
-    width: 10vw;
-}
-
-.generate-option:hover {
-    cursor: pointer;
-}
-
-.download-button {
-    padding: 10px;
-    background:  rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-}
-
-.download-button:hover {
-    cursor: pointer;
-    background:  rgba(255, 255, 255, 0.3);
 }
 
 .rhap_container, .rhap_container *:focus {
@@ -86,4 +58,39 @@
 
 .rhap_progress-indicator, .rhap_progress-filled {
     background-color: black;
+}
+
+.results-button, .or {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.results-button:hover {
+    cursor: pointer;
+    font-size: 1.31rem;
+}
+
+@media screen and (max-width : 500px) {
+
+    .success-container {
+        margin: 0 0 8vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 20px;
+        min-height: 400px;
+    }
+
+    .waiting-for-results {
+        font-size: 1.2rem;
+    }
+
+    .audio-player-container {
+        max-width: 90vw;
+    }
 }

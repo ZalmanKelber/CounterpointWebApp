@@ -45,7 +45,7 @@ class Gallery extends React.Component {
                         {
                             modes.map((mode, i) => {
                                 return (
-                                    <div className="mode-title-container" onClick={() => this.selectMode(mode)} >
+                                    <div key={i} className="mode-title-container" onClick={() => this.selectMode(mode)} >
                                         <div className="mode-title">{mode.charAt(0).toUpperCase() + mode.slice(1)}</div>
                                     </div>
                                 )
@@ -54,7 +54,6 @@ class Gallery extends React.Component {
                     </div>
                     {
                         modes.map((mode, i) => {
-                            {console.log(mode)}
                             if (this.state.selectedMode === mode) {
                                 return (
                                     <div key={i} className="mode-display-container">
