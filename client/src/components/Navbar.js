@@ -14,13 +14,13 @@ class Navbar extends React.Component {
                 </div>
                 <div className="menu-items">
                     <div className="menu-link" onClick={() => window.location.reload()}>
-                        <Link to="/create">GENERATE</Link>
+                        <Link to="/create">CREATE</Link>
                     </div>
                     <div className="menu-link" onClick={() => window.location.reload()}>
                         <Link to="/gallery">GALLERY</Link>
                     </div>
                     <div className="menu-link" onClick={() => window.location.reload()}>
-                        <Link to="/ahout">ABOUT</Link>
+                        <Link to="/about">ABOUT</Link>
                     </div>
                     <div className="menu-link">
                         <Link to="/landing">HOME</Link>

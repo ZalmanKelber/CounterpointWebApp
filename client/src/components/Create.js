@@ -7,6 +7,7 @@ import SelectRanges from "./SelectRanges";
 import SelectCantusFirmusIndex from "./SelectCantusFirmusIndex";
 import SelectLength from "./SelectLength";
 import DisplayResult from "./DisplayResult";
+import Footer from "./Footer";
 
 import "../css/Create.css"
 
@@ -132,6 +133,7 @@ class Create extends React.Component {
                     refreshState={this.refreshState}
                     refreshDisplayResult={this.refreshDisplayResult}
                 />
+                <Footer />
             </div>
         );
     }

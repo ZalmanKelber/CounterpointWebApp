@@ -17,6 +17,11 @@
     color: white;
     border: 1px solid white;
     border-radius: 5px;
+    transition: all 150ms;
+}
+
+.click-to-enter:hover {
+    font-size: 1.04rem;
 }
 
 a, .click-to-enter {

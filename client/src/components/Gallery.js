@@ -2,6 +2,7 @@ import React from "react";
 import AudioPlayer from "react-h5-audio-player";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 import "../css/Gallery.css"
 
@@ -38,7 +39,7 @@ class Gallery extends React.Component {
             <div className="main">
                 <Navbar />
                 <h1 className="create-title">GALLERY</h1>
-                <h2 className="gallery-instructions">Click on a mode to view one of our favorite examples of imitative counterpoint produced by the program</h2>
+                <h2 className="gallery-instructions">Click on a mode to view one of the best examples of imitative counterpoint produced by the program</h2>
                 <div className="gallery-container">
                     <div className="list-modes">
                         {
@@ -74,6 +75,7 @@ class Gallery extends React.Component {
                         })
                     }
                 </div>
+                <Footer />
             </div>
         );
     }
